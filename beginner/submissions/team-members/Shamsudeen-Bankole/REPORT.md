@@ -26,6 +26,7 @@ Initially, there are no clear indications of irrelevant features. All retained f
 
 ---
 ### 🎯 2. Target Variable Assessment 
+
 Q: What is the distribution of `Diabetes_binary`?  
 A: The distribution of target_class is highly imbalanced, with class 0 (no diabetes) comprising approximately 86% of the data (218334 instances), class 1 (prediabetes or diabetes) accounting for 14.0% (35,346 instances). This suggests a strong class skew that may require addressing in modelling.
 
@@ -38,7 +39,6 @@ We may have to consider resampling methods such as SMOTE, ADASYN, oversampling, 
 We may have to consider threshold tuning to optimise recall or the F1 score, depending on the clinical priority
 
 ---
-
 ### 📊 3. Feature Distribution & Quality
 
 Q: Which numerical features are skewed or contain outliers?  
@@ -53,8 +53,8 @@ A:  MentHlth and PhysHlth are within the 0-30 days. No negative or >30
 Q: What transformation methods (if any) might improve these feature distributions?  
 A:  MentHlth and PhysHlth: Yeo-Johnson or Square-root transformation for variance stabilisation
     BMI: Winsoring or capping a high percentile or Use robustscaler or Yeo-Johnson 
----
 
+---
 ### 📈 4. Feature Relationships & Patterns
 
 Q: Which categorical features (e.g., `GenHealth`, `PhysicalActivity`, `Smoking`) show visible patterns in relation to `Diabetes_binary`?  
@@ -66,8 +66,8 @@ A:  There is no multicollinearity; there is a weak correlation between the featu
 Q: What trends or correlations stood out during your analysis?
 A:  PhysHlth and MentHlth showed a highest but weak correlation (0.35)
     BMI and Outcome (0.22)
----
 
+---
 ### 🧰 5. EDA Summary & Preprocessing Plan
 
 Q: What are your 3–5 biggest takeaways from EDA?  
