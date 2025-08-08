@@ -76,7 +76,6 @@ To classify individuals as diabetic (1) or non-diabetic (0)
 ## 🗒️ Project Timeline Overview
 
 | Phase                           | General Activities                                                     |
-
 | ------------------------------- | ---------------------------------------------------------------------- |
 | **Week 1: Setup + EDA**         | Clean, explore, and visualize the data                                 |
 | **Week 2: Feature Engineering** | Transform features, encode variables, handle imbalance, prepare splits |
@@ -85,4 +84,5 @@ To classify individuals as diabetic (1) or non-diabetic (0)
 | **Week 5: Deployment**          | Deploy models via Streamlit or API-based solutions                     |
 
 ---
+
 
