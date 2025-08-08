@@ -1,4 +1,4 @@
-🟢 GlucoTrack: Beginner Track
+# 🟢 GlucoTrack: Beginner Track
 
 ## 📌 Overview
 This project leverages supervised machine learning algorithms to predict the risk of diabetes using the CDC Diabetes Health Indicators dataset. By analysing a wide range of health and lifestyle features such as BMI, physical activity, blood pressure, smoking status, and general health condition, the project aims to identify patterns and risk factors associated with diabetes to allow early detection and support of public health decision-making.
@@ -34,7 +34,7 @@ To classify individuals as diabetic (1) or non-diabetic (0)
 
 |Diabetes_binary | Binary |
 
-## 📊 Dataset: CDC Diabetes Health Indicators contained in the 2014 BRFSS Survey Data and Documentation can be accessed through the [CDC Diabetes Health Indicators](https://archive.ics.uci.edu/dataset/891/cdc+diabetes+health+indicators)
+### 📊 **Dataset**: CDC Diabetes Health Indicators contained in the 2014 BRFSS Survey Data and Documentation can be accessed through the [CDC Diabetes Health Indicators](https://archive.ics.uci.edu/dataset/891/cdc+diabetes+health+indicators)
 
 ## 🎓 Weekly Breakdown
 
