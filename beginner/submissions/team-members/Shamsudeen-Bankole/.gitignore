@@ -13,6 +13,7 @@
 **/env/
 **/ENV/
 
+
 # ---------------------------
 # Jupyter Notebook checkpoints
 # ---------------------------
@@ -28,6 +29,9 @@
 # ---------------------------
 **/.env
 **/.env.*
+# Ignore any folder ending in 'env'
+**/*env/
+
 
 # ---------------------------
 # VS Code settings
