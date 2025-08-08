@@ -10,7 +10,7 @@ A: No missing values were found in the dataset, as 253680 instances are complete
     
 Q: Are all data types appropriate (e.g., numeric, categorical)?  
 A: No, not all data types are appropriate in the raw dataset. The appropriate format is given below
-   Binary categorical Features: 15 Columns: Outcome, Sex, HighBP, HighChol, CholCheck, Smoker, Stroke, HeartDiseaseorAttack, PhysActivity, Fruits, Veggies, HvyAlcoholConsump, AnyHealthcare, NoDocbcCost, DiffWalk
+   Binary categorical Features: 15 Columns: Outcome, Sex, HighBP, HighChol, CholCheck, Smoker, Stroke, HeartDiseaseorAttack, PhysActivity, Fruits, Veggies,   HvyAlcoholConsump, AnyHealthcare, NoDocbcCost, DiffWalk
    ordinal/categorical_features: 4 Columns: ['GenHlth', 'Age', 'Education', 'Income']
    numeric_features: 3 Columns ['BMI', 'MentHlth', 'PhysHlth']
    While some features like BMI, mental health, and physical health are naturally numeric and stored as float, other columns are binary or ordinal categorical and needed to be converted into the appropriate datatype (category or int) to reduce memory usage. 
@@ -20,10 +20,7 @@ A: No, not all data types are appropriate in the raw dataset. The appropriate fo
 
 Q: Did you detect any constant, near-constant, or irrelevant features?  
 A: No constant features (i.e., columns with only one unique value) were detected. Every feature had at least two unique values, indicating variability     in responses.
-   There are a few features that showed near-constant behavior, where one category accounted for the vast majority of entries. For example
-   CholCheck                   96.27%      
-   Stroke                      95.94      
-   AnyHealthcare               95.11      
+   There are a few features that showed near-constant behavior, where one category accounted for the vast majority of entries. For example CholCheck                   96.27%, Stroke 95.94, AnyHealthcare 95.11.      
 These features are not removed immediately but flagged for possible exclusion or dimensionality reduction if they do not significantly contribute during model evaluation.
 Initially, there are no clear indications of irrelevant features. All retained features may have potential predictive power for diabetes classification and should be evaluated during model training for importance.
 
@@ -57,6 +54,7 @@ Q: What transformation methods (if any) might improve these feature distribution
 A:  MentHlth and PhysHlth: Yeo-Johnson or Square-root transformation for variance stabilisation
     BMI: Winsoring or capping a high percentile or Use robustscaler or Yeo-Johnson 
 ---
+
 ### 📈 4. Feature Relationships & Patterns
 
 Q: Which categorical features (e.g., `GenHealth`, `PhysicalActivity`, `Smoking`) show visible patterns in relation to `Diabetes_binary`?  
@@ -69,6 +67,7 @@ Q: What trends or correlations stood out during your analysis?
 A:  PhysHlth and MentHlth showed a highest but weak correlation (0.35)
     BMI and Outcome (0.22)
 ---
+
 ### 🧰 5. EDA Summary & Preprocessing Plan
 
 Q: What are your 3–5 biggest takeaways from EDA?  
