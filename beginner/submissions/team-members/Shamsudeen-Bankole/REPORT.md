@@ -51,9 +51,8 @@ A:  MentHlth has strong positive skew (~2.72) with many zeros: about 14% flagged
     
 Q: Did any features contain unrealistic or problematic values?
 A:  MentHlth and PhysHlth are within the 0-30 days. No negative or >30
-    BMI: No negatives or <10; however, 279 observations > 80 were flagged. Such values can be physiologically rare and may warrant verification or          capping.
+    BMI: No negatives or <10; however, 279 observations > 80 were flagged. Such values can be physiologically rare and may warrant verification or capping.
     
-
 Q: What transformation methods (if any) might improve these feature distributions?  
 A:  MentHlth and PhysHlth: Yeo-Johnson or Square-root transformation for variance stabilisation
     BMI: Winsoring or capping a high percentile or Use robustscaler or Yeo-Johnson 
@@ -66,7 +65,7 @@ A: All the categorical features
 Q: Are there any strong pairwise relationships or multicollinearity between features?  
 A:  There is no multicollinearity; there is a weak correlation between the features
 
-Q: What trends or correlations stood out during your analysis?  
+Q: What trends or correlations stood out during your analysis?
 A:  PhysHlth and MentHlth showed a highest but weak correlation (0.35)
     BMI and Outcome (0.22)
 ---
@@ -82,3 +81,4 @@ A:  Scale: BMI, MentHlth, PhysHlth
 Encoding: Ordinal Categorical features (Income, Age, Education, GenHlth)
 Q: What does your cleaned dataset look like (rows, columns, shape)?  
 A:  (229474, 22)
+
