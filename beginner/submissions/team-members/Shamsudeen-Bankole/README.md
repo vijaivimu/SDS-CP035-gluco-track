@@ -19,11 +19,11 @@ To classify individuals as diabetic (1) or non-diabetic (0)
 | Education | Socioeconomic | Ordinal |
 | Income | Socioeconomic | Ordinal |
 
-|Target Feature  | Semantic Type |
+|Target Feature  | Semantic Type    |
 |----------------| Measurement scale|
 |Diabetes_binary | Binary |
 
-### 📊 **Dataset**: CDC Diabetes Health Indicators contained in the 2014 BRFSS Survey Data and Documentation can be accessed through the [CDC Diabetes Health Indicators](https://archive.ics.uci.edu/dataset/891/cdc+diabetes+health+indicators)
+##📊 **Dataset**: CDC Diabetes Health Indicators contained in the 2014 BRFSS Survey Data and Documentation can be accessed through the [CDC Diabetes Health Indicators](https://archive.ics.uci.edu/dataset/891/cdc+diabetes+health+indicators)
 
 ## 🎓 Weekly Breakdown
 
@@ -73,5 +73,6 @@ To classify individuals as diabetic (1) or non-diabetic (0)
 | **Week 5: Deployment**          | Deploy models via Streamlit or API-based solutions                     |
 
 ---
+
 
 
