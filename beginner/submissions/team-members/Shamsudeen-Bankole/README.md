@@ -11,7 +11,7 @@ To classify individuals as diabetic (1) or non-diabetic (0)
 | Predictive Features | Semantic Type | Measurement Scale |
 |---------------------|---------------|-------------------|
 | HighBP, HighChol, CholCheck, Smoker, Stroke, HeartDiseaseorAttack, PhysActivity, HvyAlcoholConsump, AnyHealthcare, NoDocbcCost, DiffWalk | Health | Binary |
-| BMI | Physiological Metric | Continuous |
+| BMI | Physiological | Continuous |
 | Fruits, Veggies | Lifestyle | Binary |
 | GenHlth, MentHlth, PhysHlth | Health | Ordinal |
 | Sex | Demographic | Binary |
