@@ -70,6 +70,7 @@ To classify individuals as diabetic (1) or non-diabetic (0)
 - Design user-friendly form inputs
 - Display prediction results and risk messages
 - Deploy the app to Streamlit Community Cloud
+
 ---
 
 ## 🗒️ Project Timeline Overview
@@ -77,15 +78,10 @@ To classify individuals as diabetic (1) or non-diabetic (0)
 | Phase                           | General Activities                                                     |
 
 | ------------------------------- | ---------------------------------------------------------------------- |
-
 | **Week 1: Setup + EDA**         | Clean, explore, and visualize the data                                 |
-
 | **Week 2: Feature Engineering** | Transform features, encode variables, handle imbalance, prepare splits |
-
-|**Week 3: Model Development**   | Train ML or DL models and evaluate performance                         |
-
+|**Week 3: Model Development**    | Train ML or DL models and evaluate performance                         |
 | **Week 4: Model Optimization**  | Tune models, improve generalization, and interpret results             |
-
 | **Week 5: Deployment**          | Deploy models via Streamlit or API-based solutions                     |
 
 
