@@ -58,7 +58,15 @@ A:  MentHlth and PhysHlth: Yeo-Johnson or Square-root transformation for varianc
 ### 📈 4. Feature Relationships & Patterns
 
 Q: Which categorical features (e.g., `GenHealth`, `PhysicalActivity`, `Smoking`) show visible patterns in relation to `Diabetes_binary`?  
-A: All the categorical features 
+A: Several categorical features show visible patterns in relation to `Diabetes_binary`:
+   - GenHlth: Individuals reporting poorer general health have a higher prevalence of diabetes.
+   - PhysActivity: Those who do not engage in physical activity are more likely to have diabetes.
+   - Smoking: Smokers show a slightly higher rate of diabetes compared to non-smokers.
+   - HighBP: People with high blood pressure are more likely to be diabetic.
+   - HighChol: High cholesterol is associated with increased diabetes prevalence.
+   - Sex: Males have a marginally higher rate of diabetes than females.
+   - Income & Education: Lower income and education levels are associated with higher diabetes rates.
+   These patterns suggest that lifestyle and socioeconomic factors are important correlates of diabetes in this dataset.
 
 Q: Are there any strong pairwise relationships or multicollinearity between features?  
 A:  There is no multicollinearity; there is a weak correlation between the features
