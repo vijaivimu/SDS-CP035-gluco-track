@@ -52,7 +52,7 @@ A:  MentHlth and PhysHlth are within the 0-30 days. No negative or >30
     
 Q: What transformation methods (if any) might improve these feature distributions?  
 A:  MentHlth and PhysHlth: Yeo-Johnson or Square-root transformation for variance stabilisation
-    BMI: Winsoring or capping a high percentile or Use robustscaler or Yeo-Johnson 
+    BMI: Winsorizing or capping a high percentile or use RobustScaler or Yeo-Johnson 
 
 ---
 ### 📈 4. Feature Relationships & Patterns
