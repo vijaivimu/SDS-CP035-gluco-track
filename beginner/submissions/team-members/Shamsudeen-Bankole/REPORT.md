@@ -13,7 +13,7 @@ Q: Are all data types appropriate (e.g., numeric, categorical)?
 A: No, not all data types are appropriate in the raw dataset. Therefore, the data types needed explicit correction based on domain knowledge.
 
 Q: Did you detect any constant, near-constant, or irrelevant features?  
-<<<<<<< HEAD
+
 A: No constant features (i.e., columns with only one unique value) were detected. Every feature had at least two unique values, indicating variability in   
    responses.
    There are a few features that showed near-constant behaviour (i.e. one category accounted for the vast majority of entries). For example, CholCheck                       
@@ -21,7 +21,7 @@ A: No constant features (i.e., columns with only one unique value) were detected
    they do not significantly contribute during model evaluation.
    Initially, there are no clear indications of irrelevant features. All retained features may have potential predictive power for diabetes classification      
    and should be evaluated during model training for importance.
-=======
+
 A: No constant features (i.e., columns with only one unique value) were detected. Every feature had at least two unique values, indicating variability     in responses.
    There are a few features that showed near-constant behavior, where one category accounted for the vast majority of entries. For example CholCheck                   96.27%, Stroke 95.94%, AnyHealthcare 95.11.      
 These features are not removed immediately but flagged for possible exclusion or dimensionality reduction if they do not significantly contribute during model evaluation.
@@ -61,7 +61,7 @@ A:  MentHlth and PhysHlth are within the 0-30 days. No negative or >30
 Q: What transformation methods (if any) might improve these feature distributions?  
 
 A:  BMI: Winsorizing or capping a high percentile or Use RobustScaler or Yeo-Johnson 
-=======
+
 A:  MentHlth and PhysHlth: Yeo-Johnson or Square-root transformation for variance stabilisation
     BMI: Winsorizing or capping a high percentile or use RobustScaler or Yeo-Johnson 
 
@@ -70,7 +70,7 @@ A:  MentHlth and PhysHlth: Yeo-Johnson or Square-root transformation for varianc
 ### 📈 4. Feature Relationships & Patterns
 
 Q: Which categorical features (e.g., `GenHealth`, `PhysicalActivity`, `Smoking`) show visible patterns in relation to `Diabetes_binary`?  
-<<<<<<< HEAD
+
 A: Based on a careful analysis of the dataset, several categorical features showed visible patterns in relation to `Diabetes_binary`
 HighBP: People with HighBP are more likely to be diabetic
 HighChol: People with HighChol are more likely to be diabetic
