@@ -5,33 +5,30 @@
 
 Q: Are there any missing, duplicate, or incorrectly formatted entries in the dataset?  
 A: No missing values were found in the dataset, as 253680 instances are complete.
-   24206 rows (corresponding to 9.5% of the dataset) were identified as duplicates and would be further assessed for removal to ensure each observation is unique and does not bias the model.
+   24206 rows (corresponding to 9.5% of the dataset) were identified as duplicates and would be further assessed for removal to ensure each observation is 
+   unique and does not bias the model.
    No formatting issues were observed; however, all features were stored as float64, while many of them should be integers or categories.
     
 Q: Are all data types appropriate (e.g., numeric, categorical)?  
-A: No, not all data types are appropriate in the raw dataset. The appropriate format is given below
-   Binary categorical Features: 15 Columns: Outcome, Sex, HighBP, HighChol, CholCheck, Smoker, Stroke, HeartDiseaseorAttack, PhysActivity, Fruits, Veggies,   HvyAlcoholConsump, AnyHealthcare, NoDocbcCost, DiffWalk
-   ordinal/categorical_features: 4 Columns: ['GenHlth', 'Age', 'Education', 'Income']
-   numeric_features: 3 Columns ['BMI', 'MentHlth', 'PhysHlth']
-   While some features like BMI, mental health, and physical health are naturally numeric and stored as float, other columns are binary or ordinal categorical and needed to be converted into the appropriate datatype (category or int) to reduce memory usage. 
-   Binary categorical variables were misrepresented as continuous (float).
-   Ordinal numeric/categorical variables lost their semantic meaning.
-   Therefore, the data types were not initially appropriate, and needed explicit correction based on domain knowledge
+A: No, not all data types are appropriate in the raw dataset. Therefore, the data types needed explicit correction based on domain knowledge.
 
 Q: Did you detect any constant, near-constant, or irrelevant features?  
-A: No constant features (i.e., columns with only one unique value) were detected. Every feature had at least two unique values, indicating variability     in responses.
-   There are a few features that showed near-constant behavior, where one category accounted for the vast majority of entries. For example CholCheck                   96.27%, Stroke 95.94, AnyHealthcare 95.11.      
-These features are not removed immediately but flagged for possible exclusion or dimensionality reduction if they do not significantly contribute during model evaluation.
-Initially, there are no clear indications of irrelevant features. All retained features may have potential predictive power for diabetes classification and should be evaluated during model training for importance.
+A: No constant features (i.e., columns with only one unique value) were detected. Every feature had at least two unique values, indicating variability in   
+   responses.
+   There are a few features that showed near-constant behaviour (i.e. one category accounted for the vast majority of entries). For example, CholCheck                       
+   96.27%, Stroke 95.94%, AnyHealthcare 95.11%. These features are not removed immediately but flagged for possible exclusion or dimensionality reduction if 
+   they do not significantly contribute during model evaluation.
+   Initially, there are no clear indications of irrelevant features. All retained features may have potential predictive power for diabetes classification      
+   and should be evaluated during model training for importance.
 
 ---
 ### 🎯 2. Target Variable Assessment 
 
 Q: What is the distribution of `Diabetes_binary`?  
-A: The distribution of target_class is highly imbalanced, with class 0 (no diabetes) comprising approximately 86% of the data (218334 instances), class 1 (prediabetes or diabetes) accounting for 14.0% (35,346 instances). This suggests a strong class skew that may require addressing in modelling.
+A: The distribution of target_class is highly imbalanced, with class 0 (no diabetes) accounting for approximately 86% of the data (218334 instances), class 1 (prediabetes or diabetes) accounting for 14.0% (35,346 instances). This suggests a strong class skew that may require addressing in modelling.
 
 Q: Is there a class imbalance? If so, how significant is it?  
-A: Yes, there is a significant class imbalance. Class 0 dominates the dataset with approximately 86.07% of the instances (218334 out of 253,680), while class 1 accounts for 13.930% (35,346 instances), and class 1 comprises only 1.8% (4,631 instances). The disparity between the majority and minority classes is substantial and may adversely affect model performance (due to algorithmic bias) if not addressed
+A: Yes, there is a significant class imbalance. Class 0 dominates the dataset with approximately 86.07% (218334 out of 253,680 instances), while class 1 accounts for 13.93% (35,346 instances). The disparity between the majority and minority classes is substantial and may adversely affect model performance (due to both data and algorithmic bias) if not addressed.
 
 Q: How might this imbalance influence your choice of evaluation metrics or model strategy?  
 A: The imbalance makes it important to use balanced evaluation metrics (such as precision, recall, F1-score, and area under the precision-recall curve) and model strategies that ensure fair learning across all classes. Ignoring this can lead to a model that performs poorly on critical minority outcomes, which is unacceptable in sensitive domains like healthcare.
@@ -51,17 +48,31 @@ A:  MentHlth and PhysHlth are within the 0-30 days. No negative or >30
     BMI: No negatives or <10; however, 279 observations > 80 were flagged. Such values can be physiologically rare and may warrant verification or capping.
     
 Q: What transformation methods (if any) might improve these feature distributions?  
-A:  MentHlth and PhysHlth: Yeo-Johnson or Square-root transformation for variance stabilisation
-    BMI: Winsoring or capping a high percentile or Use robustscaler or Yeo-Johnson 
+A:  BMI: Winsorizing or capping a high percentile or Use RobustScaler or Yeo-Johnson 
 
 ---
 ### 📈 4. Feature Relationships & Patterns
 
 Q: Which categorical features (e.g., `GenHealth`, `PhysicalActivity`, `Smoking`) show visible patterns in relation to `Diabetes_binary`?  
-A: All the categorical features 
+A: Based on a careful analysis of the dataset, several categorical features showed visible patterns in relation to `Diabetes_binary`
+HighBP: People with HighBP are more likely to be diabetic
+HighChol: People with HighChol are more likely to be diabetic
+Smoker: Smokers shows a slightly higher rate of diabetes than non-smokers
+Stroke: Individuals with stroke are more likely to be diabetic
+HeartDiseaseorAttack: Individuals with HeartDiseaseorAttack
+PhysActivity: Those who do not engage in physical activity are more likely to have diabetes
+Fruits: People who eat fruits are less likely to be diabetic compared to those who do not
+Veggies: Veggies are less likely to be diabetic compared to those who do not
+HvyAlcoholConsump: Surprisingly those who take alcohol are less diabetic compared to those who do not
+NoDocbcCost: People with restricted access to the doctor due to financial restraint are more likely to be diabetic
+DiffWalk: People with difficulty walking or climbing stairs are more likely to be diabetic
+Sex: Males have a marginally higher rate of diabetes than females.
+GenHlth: Individuals reporting poorer general health have a higher prevalence of diabetes.
+Age: There is a likelihood of diabetes with age
+Education and Income: Lower income and education levels are associated with higher diabetes rates
 
 Q: Are there any strong pairwise relationships or multicollinearity between features?  
-A:  There is no multicollinearity; there is a weak correlation between the features
+A:  There is no multicollinearity; there is a weak correlation between the numeric features
 
 Q: What trends or correlations stood out during your analysis?
 A:  PhysHlth and MentHlth showed a highest but weak correlation (0.35)
