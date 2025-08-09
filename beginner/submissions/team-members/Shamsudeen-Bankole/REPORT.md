@@ -31,7 +31,7 @@ Q: What is the distribution of `Diabetes_binary`?
 A: The distribution of target_class is highly imbalanced, with class 0 (no diabetes) comprising approximately 86% of the data (218334 instances), class 1 (prediabetes or diabetes) accounting for 14.0% (35,346 instances). This suggests a strong class skew that may require addressing in modelling.
 
 Q: Is there a class imbalance? If so, how significant is it?  
-A: Yes, there is a significant class imbalance. Class 0 dominates the dataset with approximately 86.07% of the instances (218334 out of 253,680), while class 1 accounts for 13.930% (35,346 instances), and class 1 comprises only 1.8% (4,631 instances). The disparity between the majority and minority classes is substantial and may adversely affect model performance (due to algorithmic bias) if not addressed
+A: Yes, there is a significant class imbalance. Class 0 dominates the dataset with approximately 86.07% of the instances (218,334 out of 253,680), while class 1 accounts for 13.93% (35,346 instances). The disparity between the majority and minority classes is substantial and may adversely affect model performance (due to algorithmic bias) if not addressed.
 
 Q: How might this imbalance influence your choice of evaluation metrics or model strategy?  
 A: The imbalance makes it important to use balanced evaluation metrics (such as precision, recall, F1-score, and area under the precision-recall curve) and model strategies that ensure fair learning across all classes. Ignoring this can lead to a model that performs poorly on critical minority outcomes, which is unacceptable in sensitive domains like healthcare.
