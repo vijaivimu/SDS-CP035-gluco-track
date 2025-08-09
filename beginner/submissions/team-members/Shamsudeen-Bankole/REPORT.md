@@ -20,7 +20,7 @@ A: No, not all data types are appropriate in the raw dataset. The appropriate fo
 
 Q: Did you detect any constant, near-constant, or irrelevant features?  
 A: No constant features (i.e., columns with only one unique value) were detected. Every feature had at least two unique values, indicating variability     in responses.
-   There are a few features that showed near-constant behavior, where one category accounted for the vast majority of entries. For example CholCheck                   96.27%, Stroke 95.94, AnyHealthcare 95.11.      
+   There are a few features that showed near-constant behavior, where one category accounted for the vast majority of entries. For example CholCheck                   96.27%, Stroke 95.94%, AnyHealthcare 95.11.      
 These features are not removed immediately but flagged for possible exclusion or dimensionality reduction if they do not significantly contribute during model evaluation.
 Initially, there are no clear indications of irrelevant features. All retained features may have potential predictive power for diabetes classification and should be evaluated during model training for importance.
 
