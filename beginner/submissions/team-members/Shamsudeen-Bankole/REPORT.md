@@ -10,23 +10,16 @@ A: No missing values were found in the dataset, as 253680 instances are complete
    No formatting issues were observed; however, all features were stored as float64, while many of them should be integers or categories.
     
 Q: Are all data types appropriate (e.g., numeric, categorical)?  
-A: No, not all data types are appropriate in the raw dataset. Therefore, the data types needed explicit correction based on domain knowledge.
+A: No, not all data types are appropriate in the raw dataset. Therefore, the data types needed explicit correction based on careful observation.
 
 Q: Did you detect any constant, near-constant, or irrelevant features?  
-
-A: No constant features (i.e., columns with only one unique value) were detected. Every feature had at least two unique values, indicating variability in   
+A: No constant features (i.e., columns with only one unique value) were detected. Every feature had at least two unique values, indicating variability in       
    responses.
-   There are a few features that showed near-constant behaviour (i.e. one category accounted for the vast majority of entries). For example, CholCheck                       
+- There are a few features that showed near-constant behaviour (i.e. one category accounted for the vast majority of entries). For example, CholCheck               
    96.27%, Stroke 95.94%, AnyHealthcare 95.11%. These features are not removed immediately but flagged for possible exclusion or dimensionality reduction if 
    they do not significantly contribute during model evaluation.
-   Initially, there are no clear indications of irrelevant features. All retained features may have potential predictive power for diabetes classification      
+- Initially, there are no clear indications of irrelevant features. All retained features may have potential predictive power for diabetes classification      
    and should be evaluated during model training for importance.
-
-A: No constant features (i.e., columns with only one unique value) were detected. Every feature had at least two unique values, indicating variability     in responses.
-   There are a few features that showed near-constant behavior, where one category accounted for the vast majority of entries. For example CholCheck                   96.27%, Stroke 95.94%, AnyHealthcare 95.11.      
-These features are not removed immediately but flagged for possible exclusion or dimensionality reduction if they do not significantly contribute during model evaluation.
-Initially, there are no clear indications of irrelevant features. All retained features may have potential predictive power for diabetes classification and should be evaluated during model training for importance.
-
 
 ---
 ### 🎯 2. Target Variable Assessment 
@@ -35,11 +28,7 @@ Q: What is the distribution of `Diabetes_binary`?
 A: The distribution of target_class is highly imbalanced, with class 0 (no diabetes) accounting for approximately 86% of the data (218334 instances), class 1 (prediabetes or diabetes) accounting for 14.0% (35,346 instances). This suggests a strong class skew that may require addressing in modelling.
 
 Q: Is there a class imbalance? If so, how significant is it?  
-
 A: Yes, there is a significant class imbalance. Class 0 dominates the dataset with approximately 86.07% (218334 out of 253,680 instances), while class 1 accounts for 13.93% (35,346 instances). The disparity between the majority and minority classes is substantial and may adversely affect model performance (due to both data and algorithmic bias) if not addressed.
-
-A: Yes, there is a significant class imbalance. Class 0 dominates the dataset with approximately 86.07% of the instances (218,334 out of 253,680), while class 1 accounts for 13.93% (35,346 instances). The disparity between the majority and minority classes is substantial and may adversely affect model performance (due to algorithmic bias) if not addressed.
-
 
 Q: How might this imbalance influence your choice of evaluation metrics or model strategy?  
 A: The imbalance makes it important to use balanced evaluation metrics (such as precision, recall, F1-score, and area under the precision-recall curve) and model strategies that ensure fair learning across all classes. Ignoring this can lead to a model that performs poorly on critical minority outcomes, which is unacceptable in sensitive domains like healthcare.
@@ -50,64 +39,73 @@ We may have to consider threshold tuning to optimise recall or the F1 score, dep
 ### 📊 3. Feature Distribution & Quality
 
 Q: Which numerical features are skewed or contain outliers?  
-A:  MentHlth has strong positive skew (~2.72) with many zeros: about 14% flagged as outliers.
-    PhysHlth is positively skewed (~2.21) with about 16% flagged as outliers
-    BMI: Right skewed (2.12) with a long tail: 3.9% flagged as outlier, and the maximum observed at 98.
+A: MentHlth has strong positive skew (~2.72) with many zeros: about 14% flagged as outliers.
+   PhysHlth is positively skewed (~2.21) with about 16% flagged as outliers
+   BMI: Right skewed (2.12) with a long tail: 3.9% flagged as outlier, and the maximum observed at 98.
     
 Q: Did any features contain unrealistic or problematic values?
-A:  MentHlth and PhysHlth are within the 0-30 days. No negative or >30
-    BMI: No negatives or <10; however, 279 observations > 80 were flagged. Such values can be physiologically rare and may warrant verification or capping.
+A: No unrealistic or problematic values were found.
     
 Q: What transformation methods (if any) might improve these feature distributions?  
 
-A:  BMI: Winsorizing or capping a high percentile or Use RobustScaler or Yeo-Johnson 
-
-A:  MentHlth and PhysHlth: Yeo-Johnson or Square-root transformation for variance stabilisation
-    BMI: Winsorizing or capping a high percentile or use RobustScaler or Yeo-Johnson 
-
-
+A:-  BMI: Winsorizing or capping a high percentile or Use RobustScaler or Yeo-Johnson 
+  - MentHlth and PhysHlth: Yeo-Johnson or Square-root transformation for variance stabilisation
+ 
 ---
 ### 📈 4. Feature Relationships & Patterns
 
 Q: Which categorical features (e.g., `GenHealth`, `PhysicalActivity`, `Smoking`) show visible patterns in relation to `Diabetes_binary`?  
 
-A: Based on a careful analysis of the dataset, several categorical features showed visible patterns in relation to `Diabetes_binary`
-HighBP: People with HighBP are more likely to be diabetic
-HighChol: People with HighChol are more likely to be diabetic
-Smoker: Smokers shows a slightly higher rate of diabetes than non-smokers
-Stroke: Individuals with stroke are more likely to be diabetic
-HeartDiseaseorAttack: Individuals with HeartDiseaseorAttack
-PhysActivity: Those who do not engage in physical activity are more likely to have diabetes
-Fruits: People who eat fruits are less likely to be diabetic compared to those who do not
-Veggies: Veggies are less likely to be diabetic compared to those who do not
-HvyAlcoholConsump: Surprisingly those who take alcohol are less diabetic compared to those who do not
-NoDocbcCost: People with restricted access to the doctor due to financial restraint are more likely to be diabetic
-DiffWalk: People with difficulty walking or climbing stairs are more likely to be diabetic
-Sex: Males have a marginally higher rate of diabetes than females.
-GenHlth: Individuals reporting poorer general health have a higher prevalence of diabetes.
-Age: There is a likelihood of diabetes with age
-Education and Income: Lower income and education levels are associated with higher diabetes rates
-These patterns suggest that lifestyle and socioeconomic factors are important correlates of diabetes in this dataset.
-
+A: Based on a careful analysis of the dataset, several categorical features exhibit visible and statistically significant patterns in relation to Diabetes_binary:
+- HighBP and HighChol: Elevated blood pressure and cholesterol levels are strongly associated with diabetes prevalence.
+- Smoker and HvyAlcoholConsump: Lifestyle factors such as smoking and heavy alcohol consumption show significant correlations with diabetes status.
+- Stroke and HeartDiseaseorAttack: A history of cardiovascular events is a strong predictor of diabetes.
+- PhysActivity, Fruits, and Veggies: Health-promoting behaviors—including regular physical activity and consumption of fruits and vegetables—are significantly linked to lower diabetes risk.
+- AnyHealthcare and NoDocbcCost: Access to healthcare services and affordability of medical consultations influence the likelihood of diabetes diagnosis.
+- DiffWalk: Mobility limitations are predictive of diabetes outcomes, possibly reflecting broader health impairments.
+- Sex: Gender shows a statistically significant association with diabetes status.
+Additionally, several ordinal features demonstrate monotonic relationships with Diabetes_binary based on Spearman correlation:
+- GenHlth: Moderate positive correlation (ρ = 0.288, p < 0.0001); individuals reporting poorer general health are more likely to have diabetes.
+- Age: Weak positive correlation (ρ = 0.178, p < 0.0001); older individuals tend to have higher diabetes prevalence.
+- Education: Weak negative correlation (ρ = –0.120, p < 0.0001); higher educational attainment is associated with lower diabetes risk.
+- Income: Weak-to-moderate negative correlation (ρ = –0.163, p < 0.0001); individuals with higher income levels are less likely to have diabetes.
 
 Q: Are there any strong pairwise relationships or multicollinearity between features?  
-A:  There is no multicollinearity; there is a weak correlation between the numeric features
+A:  No strong pairwise correlations were observed among the numeric features. The relationships between predictors are generally weak, and there is no evidence of multicollinearity. This suggests that the features contribute independently to the outcome and are suitable for inclusion in multivariate models without redundancy concerns.
 
 Q: What trends or correlations stood out during your analysis?
-A:  PhysHlth and MentHlth showed a highest but weak correlation (0.35)
-    BMI and Outcome (0.22)
+A:  Several key patterns emerged:
+- Health conditions such as high blood pressure, high cholesterol, stroke, and heart disease were strongly associated with diabetes.
+- Lifestyle factors—including smoking, heavy alcohol use, low physical activity, and poor diet—showed significant links to diabetes prevalence.
+- Socioeconomic indicators like lower income and education levels were negatively correlated with diabetes risk.
+- General health ratings had the strongest monotonic relationship (ρ = 0.288), indicating that self-reported poor health is a key predictor.
+- Among numeric features, PhysHlth and MentHlth showed the highest pairwise correlation (ρ ≈ 0.35), though still weak.
+- BMI had the highest individual correlation with the outcome among numeric variables (ρ = 0.22), suggesting a modest but notable association.
+- No strong pairwise correlations or multicollinearity were detected, indicating that predictors contribute independently to the model.
 
 ---
 ### 🧰 5. EDA Summary & Preprocessing Plan
 
 Q: What are your 3–5 biggest takeaways from EDA?  
-A:  The dataset class is imbalanced, so there is a need to carefully address it to avoid bias in the model.
-    Near-constant value can be potentially dropped
-    Outliers should be handled with appropriate scaling
+A: *Strong categorical associations with diabetes*
+- Features like HighBP, HighChol, Smoker, Stroke, and HeartDiseaseorAttack show clear, statistically significant links to diabetes status.
+*Lifestyle and access matter*
+- Low physical activity, poor diet, and limited healthcare access (NoDocbcCost, AnyHealthcare) are associated with higher diabetes prevalence.
+* Self-reported health is a key signal*
+- GenHlth shows the strongest monotonic correlation with diabetes (ρ = 0.288), followed by BMI (ρ = 0.22), indicating that subjective health ratings and body mass index are meaningful predictors.
+* Data quality considerations*
+- The target class (Diabetes_binary) is imbalanced, requiring careful handling to avoid biased model performance.
+- Features with near-constant values may be dropped to reduce noise and improve model efficiency.
+- Outliers should be addressed through appropriate scaling or transformation to preserve model stability.
+- No multicollinearity detected
+- Weak pairwise correlations across features suggest low redundancy, supporting the use of all predictors in multivariate models.
+
 
 Q: Which features will you scale, encode, or exclude in preprocessing?  
-A:  Scale: BMI, MentHlth, PhysHlth
-Encoding: Ordinal Categorical features (Income, Age, Education, GenHlth)
+A:  BMI, MentHlth, PhysHlth will be scaled to handle outliers and normalize their distributions for model stability
+- Ordinal Categorical features such as Income, Age, Education, GenHlth will be encoded using ordinal encoding to preserve their inherent order and semantic meaning.
+- Features with near-constant values or low variance features ssuch as CholCheck, Stroke and AnyHealthcare, may be excluded to reduce noise and improve model efficiency
+
 Q: What does your cleaned dataset look like (rows, columns, shape)?  
-A:  (229474, 22)
+A:  After removing duplicate entries, the cleaned dataset will contains 229,474 rows and 22 columns, resulting in a shape of (229474, 22).
 
