@@ -106,9 +106,10 @@ Our EDA process followed a systematic approach covering six major areas:
 ```
 /advanced/submissions/team-members/yan-cotta/
 │
-├── README.md                 # Project documentation and overview (this file)
-├── REPORT.md                 # Comprehensive EDA report answering specific research questions
-└── week_1_eda.ipynb          # Jupyter notebook containing complete exploratory data analysis
+├── README.md                           # Project documentation and overview (this file)
+├── REPORT.md                           # Comprehensive EDA and feature engineering report
+├── week_1_eda.ipynb                    # Week 1: Complete exploratory data analysis
+└── week_2_feature_engineering.ipynb    # Week 2: Feature engineering and deep learning prep
 ```
 
 ### 📁 File Descriptions
@@ -135,6 +136,14 @@ Our EDA process followed a systematic approach covering six major areas:
 - Statistical summaries and data validation frameworks
 - Executable code with detailed markdown documentation
 - Final data validation and modeling preparation insights
+
+**`week_2_feature_engineering.ipynb`**
+- Complete feature engineering pipeline with 26 executable cells
+- Implementation of WHO BMI categorization and integer encoding for neural networks
+- StandardScaler application and stratified data splitting
+- PyTorch DataLoader creation and validation
+- Comprehensive markdown documentation with senior-level analysis
+- Production-ready preprocessing pipeline for deep learning implementation
 
 ---
 
@@ -196,12 +205,16 @@ pip install ucimlrepo pandas numpy matplotlib seaborn
 
 ## Next Steps
 
-### 📅 Week 2: Feature Engineering and Preprocessing
-**Planned Deliverables:**
-- **Data Preprocessing Pipeline:** Remove duplicates, handle outliers, feature scaling
-- **Feature Engineering:** BMI categories, health composite scores, interaction features
-- **Class Imbalance Handling:** Implement SMOTE/ADASYN for balanced training sets
-- **Train/Validation/Test Splits:** Stratified sampling maintaining class distributions
+### 📅 Week 2: Feature Engineering and Preprocessing - ✅ COMPLETE
+**Completed Deliverables:**
+- **Robust Preprocessing Pipeline:** Successfully removed 24,206 duplicate rows and optimized data types for 15.2% memory reduction
+- **Strategic Feature Engineering:** Implemented WHO BMI categorization based on team health expert feedback, creating clinically meaningful categories
+- **Neural Network Optimization:** Applied integer encoding to 3 high-cardinality categorical features for embedding layer compatibility
+- **Perfect Feature Scaling:** Achieved optimal normalization (mean≈0, std≈1) for numerical features using StandardScaler
+- **Stratified Data Splitting:** Maintained critical class balance (85.4%/14.6%) across 70/15/15 train/validation/test splits
+- **Production-Ready DataLoaders:** Created optimized PyTorch DataLoaders with batch size 64 for efficient neural network training
+
+**Key Accomplishments:** Completed a comprehensive preprocessing pipeline including duplicate removal, WHO BMI categorization based on team feedback, feature scaling, and stratified data splitting. Final dataset: 229,474 samples × 22 features, ready for neural network implementation.
 
 ### 📅 Week 3: Model Development and Training
 **Planned Deliverables:**
