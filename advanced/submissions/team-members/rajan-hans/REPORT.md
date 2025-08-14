@@ -45,7 +45,7 @@
 
 ### 📈 4. Feature Relationships & Patterns
 
-**Q: Which categorical features (e.g., `GenHealth`, `PhysicalActivity`, `Smoking`) show visible patterns in relation to `Diabetes_binary`?**  
+**Q: Which categorical features (e.g., `GenHlth`, `PhysicalActivity`, `Smoking`) show visible patterns in relation to `Diabetes_binary`?**  
 **A:** The “positive‑rate by category” plots show clear signal for:  
 - **`GenHlth`**: prevalence increases monotonically from *Excellent* to *Poor*.  
 - **`PhysActivity`**: active individuals show a lower positive rate than inactive.  
