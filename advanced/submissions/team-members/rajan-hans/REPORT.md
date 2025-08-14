@@ -20,7 +20,7 @@
 ### 🎯 2. Target Variable Assessment
 
 **Q: What is the distribution of `Diabetes_binary`?**  
-**A:** The distribution shows: **Non‑Diabetes: 86.0667%**, **Pre/Diabetes: 13.9333%**.
+**A:** The distribution shows: **Non‑Diabetes: 86.0667%**, **Pre-diabetes/Diabetes: 13.9333%**.
 
 **Q: Is there a class imbalance? If so, how significant is it?**  
 **A:** Yes—substantial. The negative:positive ratio is approximately **6.18 : 1**, indicating a minority positive class (~14%).
