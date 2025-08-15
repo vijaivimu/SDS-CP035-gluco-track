@@ -20,7 +20,7 @@
 ### 🎯 2. Target Variable Assessment
 
 **Q: What is the distribution of `Diabetes_binary`?**  
-**A:** The distribution shows: **Non‑Diabetes: 86.0667%**, **Pre/Diabetes: 13.9333%**.
+**A:** The distribution shows: **Non‑Diabetes: 86.0667%**, **Pre-diabetes/Diabetes: 13.9333%**.
 
 **Q: Is there a class imbalance? If so, how significant is it?**  
 **A:** Yes—substantial. The negative:positive ratio is approximately **6.18 : 1**, indicating a minority positive class (~14%).
@@ -45,7 +45,7 @@
 
 ### 📈 4. Feature Relationships & Patterns
 
-**Q: Which categorical features (e.g., `GenHealth`, `PhysicalActivity`, `Smoking`) show visible patterns in relation to `Diabetes_binary`?**  
+**Q: Which categorical features (e.g., `GenHlth`, `PhysicalActivity`, `Smoking`) show visible patterns in relation to `Diabetes_binary`?**  
 **A:** The “positive‑rate by category” plots show clear signal for:  
 - **`GenHlth`**: prevalence increases monotonically from *Excellent* to *Poor*.  
 - **`PhysActivity`**: active individuals show a lower positive rate than inactive.  

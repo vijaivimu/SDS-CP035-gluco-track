@@ -293,6 +293,196 @@ All extreme values appear to be legitimate medical measurements rather than data
 
 ---
 
+## ✅ Week 2: Feature Engineering & Deep Learning Prep
+
+**Dataset:** CDC Diabetes Health Indicators (UCI ML Repository ID: 891)  
+**Processing Date:** August 14, 2025  
+**Pipeline Status:** ✅ Complete - Ready for Neural Network Training
+
+---
+
+### 🔧 1. Feature Encoding Strategy
+
+**Q: Which categorical features did you encode, and what method did you use? Justify your choice.**
+
+**A:** We strategically encoded **3 high-cardinality categorical features** using **Integer Encoding (LabelEncoder)**:
+
+**Features Encoded:**
+- **Age:** 13 categories (age groups 1-13) → Encoded to 0-12
+- **GenHlth:** 5 categories (general health 1-5) → Encoded to 0-4  
+- **bmi_category:** 6 categories (WHO BMI classes 0-5) → Encoded to 0-5
+
+**Method Justification - Integer Encoding for Neural Networks:**
+
+**Why Integer Encoding over One-Hot Encoding:**
+- **Embedding Compatibility:** Integer encoding provides optimal input format for PyTorch embedding layers
+- **Dimensionality Efficiency:** Reduces feature space from 24 one-hot columns to just 3 integer columns (13+5+6 → 3)
+- **Dense Representation Learning:** Enables neural networks to learn meaningful, dense vector representations for each category
+- **Memory Optimization:** Significantly reduces memory usage and computational overhead
+- **Non-linear Relationship Discovery:** Allows embedding layers to capture complex, non-linear relationships between categorical values
+
+**Why Not One-Hot Encoding:**
+- Would create sparse, high-dimensional feature vectors (24 additional columns)
+- Computationally inefficient for neural network training
+- Loses the opportunity for learned embeddings that can capture semantic similarities
+- Creates memory and performance bottlenecks with large datasets (229K+ samples)
+
+**Technical Implementation:**
+- Used sklearn's LabelEncoder for consistent, reversible transformations
+- Maintained original features alongside encoded versions for interpretability
+- Verified proper range mapping: all encoded features start from 0 (required for embedding layers)
+
+---
+
+### 📏 2. Numerical Feature Scaling
+
+**Q: Which numerical features did you scale, and what scaling method did you use? Why was this choice appropriate?**
+
+**A:** We scaled **2 critical numerical features** using **StandardScaler**:
+
+**Features Scaled:**
+- **MentHlth (Mental Health Days):** Original range 0-30, heavily right-skewed (skewness: 2.54)
+- **PhysHlth (Physical Health Days):** Original range 0-30, right-skewed (skewness: 2.04)
+
+**Scaling Results:**
+- **Perfect Normalization Achieved:** Both features transformed to mean ≈ 0.000000, std ≈ 1.000000
+- **Distribution Improvement:** Addressed right-skewness while preserving relative relationships
+- **Neural Network Optimization:** Created zero-centered distributions optimal for gradient-based learning
+
+**Why StandardScaler over MinMaxScaler:**
+
+**Technical Advantages:**
+- **Gradient Optimization:** Zero-centered data improves gradient flow in neural networks
+- **Outlier Robustness:** More robust to the outliers we identified at maximum values (30 days)
+- **Weight Initialization Compatibility:** Works optimally with standard neural network weight initialization schemes
+- **Activation Function Efficiency:** Zero-centered inputs work better with activation functions like ReLU and sigmoid
+
+**Clinical Justification:**
+- **Outlier Preservation:** The 30-day outliers represent clinically meaningful chronic conditions, not data errors
+- **Relationship Maintenance:** Preserves the relative differences between patients with different health burden levels
+- **Scale Consistency:** Both MentHlth and PhysHlth have identical ranges, making StandardScaler ideal for consistent treatment
+
+**Features NOT Scaled:**
+- **BMI:** Kept original scale since we created categorical version (bmi_category) for the model
+- **Binary Variables:** Already in optimal 0/1 format for neural networks
+- **Encoded Categories:** Integer-encoded features are input to embedding layers, not direct neural network processing
+
+---
+
+### 🎯 3. Data Splitting Strategy
+
+**Q: How did you split your data (train/validation/test), and what considerations did you account for?**
+
+**A:** We implemented a **stratified 70/15/15 split** with careful attention to class balance preservation:
+
+**Split Configuration:**
+- **Training Set:** 160,631 samples (70.0%)
+- **Validation Set:** 34,421 samples (15.0%)  
+- **Test Set:** 34,422 samples (15.0%)
+- **Total Processed:** 229,474 unique samples (after duplicate removal)
+
+**Critical Design Decisions:**
+
+**1. Stratified Sampling (stratify=y_raw):**
+- **Class Balance Preservation:** Maintained the critical 85.4% / 14.6% diabetes distribution across ALL splits
+- **Healthcare Importance:** In medical applications, preserving rare disease prevalence is essential for valid evaluation
+- **Statistical Validity:** Ensures test set performance accurately reflects real-world population characteristics
+
+**2. Two-Stage Splitting Process:**
+- **Stage 1:** 85% temporary set vs 15% test set (with stratification)
+- **Stage 2:** 70% train vs 15% validation from the 85% temporary set (with stratification)
+- **Mathematical Precision:** test_size=(0.15/0.85) ensures exact 15% validation split
+
+**3. Random State Control (random_state=42):**
+- **Reproducibility:** Ensures consistent splits across different runs
+- **Collaboration:** Team members can reproduce exact same train/val/test splits
+- **Debugging:** Facilitates troubleshooting and model comparison
+
+**Validation Results:**
+- **Perfect Stratification:** Class distributions identical across splits (±0.02%)
+- **No Data Leakage:** Clean separation between train/val/test with no sample overlap
+- **Sample Size Adequacy:** Each split contains sufficient samples for robust training and evaluation
+
+**Clinical Considerations:**
+- **Minority Class Representation:** Each split contains ~5,000+ diabetes cases for reliable evaluation
+- **Population Validity:** Test set accurately represents target deployment population
+- **Bias Prevention:** Stratification prevents accidentally creating biased evaluation sets
+
+---
+
+### 🚀 4. Deep Learning Data Preparation
+
+**Q: How did you prepare your data for PyTorch DataLoaders? What batch size and configurations did you choose?**
+
+**A:** We created production-ready PyTorch DataLoaders optimized for efficient neural network training:
+
+**DataLoader Configuration:**
+
+**Batch Size Selection: 64**
+- **Computational Efficiency:** Optimal balance for 229K+ sample dataset
+- **GPU Memory:** Fits comfortably in standard GPU memory (8GB+)
+- **Gradient Stability:** Large enough for stable gradient estimates, small enough for frequent updates
+- **Training Speed:** Results in 2,510 training batches per epoch for reasonable training time
+
+**Tensor Optimization:**
+- **Feature Tensors:** Converted to float32 (standard for neural network computations)
+- **Label Tensors:** Converted to long dtype (required for PyTorch classification losses)
+- **Memory Efficiency:** Optimized tensor storage for large dataset processing
+
+**DataLoader-Specific Configurations:**
+
+**Training DataLoader:**
+- **shuffle=True:** Critical for preventing overfitting and ensuring diverse mini-batches
+- **Randomization:** Each epoch presents data in different order, improving generalization
+
+**Validation/Test DataLoaders:**
+- **shuffle=False:** Ensures consistent, reproducible evaluation across runs
+- **Deterministic Evaluation:** Same sample order enables reliable performance comparison
+
+**System Optimization:**
+- **num_workers=0:** Configured for Windows compatibility (avoids multiprocessing issues)
+- **pin_memory=True:** Enabled when CUDA available for faster GPU data transfer
+- **Batch Consistency:** All loaders use identical batch size for consistent processing
+
+**Production Readiness Verification:**
+- **Successful Iteration:** Confirmed DataLoaders produce expected tensor shapes
+- **Class Distribution:** Verified mini-batches maintain reasonable class representation
+- **Feature Statistics:** Confirmed proper scaling preservation in tensor format
+- **Memory Efficiency:** Total pipeline operates within reasonable memory constraints
+
+**Technical Specifications:**
+- **Training Batches:** 2,510 per epoch
+- **Validation Batches:** 538 per evaluation
+- **Test Batches:** 538 for final assessment
+- **Feature Dimensions:** 22 features per sample (post-encoding and scaling)
+- **Ready for Embedding:** Categorical features properly formatted for embedding layer input
+
+---
+
+### 🎯 Week 2 Summary & Next Steps
+
+**Pipeline Achievements:**
+✅ **Data Integrity:** Removed 24,206 duplicates, optimized data types (15.2% memory reduction)  
+✅ **Feature Engineering:** Created WHO BMI categories, integer-encoded 3 high-cardinality features  
+✅ **Neural Network Prep:** Perfect feature scaling, stratified splits, optimized DataLoaders  
+✅ **Production Ready:** 229,474 samples × 22 features ready for deep learning implementation  
+
+**Technical Validation:**
+- **Class Balance Maintained:** 85.4%/14.6% preserved across all splits (±0.02%)
+- **Feature Quality:** 22 properly formatted features (3 embedding + 2 scaled + 17 original)
+- **Memory Optimized:** 36.1 MB total dataset, efficient batch processing
+- **Performance Ready:** 2,510 training batches, GPU-optimized tensor format
+
+**Week 3 Readiness:**
+- **Neural Architecture:** Ready for embedding layers (3 categorical features properly encoded)
+- **Training Pipeline:** DataLoaders configured for efficient gradient-based optimization
+- **Evaluation Framework:** Stratified splits ensure valid performance assessment
+- **Clinical Focus:** Preserved class balance critical for healthcare model evaluation
+
+**Status:** ✅ **Week 2 Complete** - Feature engineering pipeline validated and ready for neural network implementation!
+
+---
+
 ## 📊 Conclusion
 
 This comprehensive EDA reveals a high-quality dataset with excellent potential for developing clinically meaningful diabetes risk prediction models. The combination of comprehensive health indicators, minimal preprocessing requirements, and clear predictive patterns provides a robust foundation for the feature engineering and modeling phases ahead.
