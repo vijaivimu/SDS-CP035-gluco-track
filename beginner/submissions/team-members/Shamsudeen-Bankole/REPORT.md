@@ -100,7 +100,7 @@ A: **Strong categorical associations with diabetes**
 Q: Which features will you scale, encode, or exclude in preprocessing?  
 A: - BMI, MentHlth, PhysHlth will be scaled to handle outliers and normalize their distributions for model stability
 - Ordinal features such as Income, Age, Education, GenHlth, MentHlth, PhysHlth will be encoded using ordinal encoding to preserve their inherent order and semantic meaning.
-- Features with near-constant values or low variance features ssuch as CholCheck, Stroke and AnyHealthcare, may be excluded to reduce noise and improve model efficiency
+- Features with near-constant values or low variance features such as CholCheck, Stroke and AnyHealthcare, may be excluded to reduce noise and improve model efficiency
 
 Q: What does your cleaned dataset look like (rows, columns, shape)?  
 A:  After removing duplicate entries, the cleaned dataset will contains 229,474 rows and 22 columns, resulting in a shape of (229474, 22).
