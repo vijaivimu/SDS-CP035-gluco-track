@@ -123,3 +123,85 @@ A:
 
 Q: Explain the role of the `shuffle` parameter in your training loader. Why is this setting important for the training set but not for the validation or testing sets?  
 A:
+
+---
+
+## ✅ Week 3: Neural Network Design & Baseline Training
+
+---
+
+### 🏗️ 1. Neural Network Architecture
+
+Q: How did you design your baseline Feedforward Neural Network (FFNN) architecture?  
+A:  
+
+Q: What was your rationale for the number of layers, units per layer, and activation functions used?  
+A:  
+
+Q: How did you incorporate Dropout, Batch Normalization, and ReLU in your model, and why are these components important?  
+A:  
+
+---
+
+### ⚙️ 2. Model Training & Optimization
+
+Q: Which loss function and optimizer did you use for training, and why are they suitable for this binary classification task?  
+A:  
+
+Q: How did you monitor and control overfitting during training?  
+A:  
+
+Q: What challenges did you face during training (e.g., convergence, instability), and how did you address them?  
+A:  
+
+---
+
+### 📈 3. Experiment Tracking
+
+Q: How did you use MLflow (or another tool) to track your deep learning experiments?  
+A:  
+
+Q: What parameters, metrics, and artifacts did you log for each run?  
+A:  
+
+Q: How did experiment tracking help you compare different architectures and training strategies?  
+A:  
+
+---
+
+### 🧮 4. Model Evaluation
+
+Q: Which metrics did you use to evaluate your neural network, and why are they appropriate for this problem?  
+A:  
+
+Q: How did you interpret the Accuracy, Precision, Recall, F1-score, and AUC results?  
+A:  
+
+Q: Did you observe any trade-offs between metrics, and how did you decide which to prioritize?  
+A:  
+
+---
+
+### 🕵️ 5. Error Analysis
+
+Q: How did you use confusion matrices or ROC curves to analyze your model’s errors?  
+A:  
+
+Q: What types of misclassifications were most common, and what might explain them?  
+A:  
+
+Q: How did your error analysis inform your next steps in model improvement?  
+A:  
+
+---
+
+### 📝 6. Model Selection & Insights
+
+Q: Based on your experiments, which neural network configuration performed best and why?  
+A:  
+
+Q: What are your top 3–5 insights from neural network development and experimentation?  
+A:  
+
+Q: How would you communicate your model’s strengths and limitations to a non-technical stakeholder?  
+A:
