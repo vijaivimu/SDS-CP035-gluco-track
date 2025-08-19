@@ -205,3 +205,45 @@ A:
 
 Q: How would you communicate your model’s strengths and limitations to a non-technical stakeholder?  
 A:
+
+---
+
+## ✅ Week 4: Model Tuning & Explainability
+
+---
+
+### 🛠️ 1. Model Tuning & Optimization
+
+Q: Which hyperparameters did you tune for your neural network, and what strategies (e.g., grid search, random search) did you use?  
+A:  
+
+Q: How did you implement early stopping or learning rate scheduling, and what impact did these techniques have on your training process?  
+A:  
+
+Q: What evidence did you use to determine your model was sufficiently optimized and not overfitting?  
+A:  
+
+---
+
+### 🧑‍🔬 2. Model Explainability
+
+Q: Which explainability technique(s) (e.g., SHAP, LIME, Integrated Gradients) did you use, and why did you choose them?  
+A:  
+
+Q: How did you apply these techniques to interpret your model’s predictions?  
+A:  
+
+Q: What were the most influential features according to your explainability analysis, and how do these findings align with domain knowledge?  
+A:  
+
+---
+
+### 📊 3. Visualization & Communication
+
+Q: How did you visualize feature contributions and model explanations for stakeholders?  
+A:  
+
+Q: What challenges did you encounter when interpreting or presenting model explanations?  
+A:  
+
+Q: How would you summarize your model’s interpretability and reliability to a non-technical audience?
