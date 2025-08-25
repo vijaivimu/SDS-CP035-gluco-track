@@ -166,8 +166,8 @@ max    3.432420e+00  2.797390e+00
 **Q: Split the data into training, validation, and testing sets (e.g., 70/15/15). What function and parameters did you use?**
 A:  The function used is train_test_split from scikit-learn. It is used to split arrays or dataframes into random train and test subsets. In your code, it is used to:
 
-Split the feature set (X_final) and target (y_raw) into two parts: a test set (15% of the data) and a temporary set (85% of the data).
-The stratify=y_raw argument ensures that the class distribution (e.g., proportion of diabetes cases) is preserved in both splits.
+Split the feature set (X) and target (y) into two parts: a test set (15% of the data) and a temporary set (85% of the data).
+The stratify=y argument ensures that the class distribution (e.g., proportion of diabetes cases) is preserved in both splits.
 The random_state=42 argument ensures reproducibility of the split.
 This function is essential for creating unbiased training, validation, and test sets for machine learning, especially when dealing with imbalanced classes. It helps evaluate model performance on unseen data and prevents overfitting.
 
