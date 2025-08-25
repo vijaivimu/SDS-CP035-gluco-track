@@ -123,3 +123,127 @@ A:
 
 Q: Explain the role of the `shuffle` parameter in your training loader. Why is this setting important for the training set but not for the validation or testing sets?  
 A:
+
+---
+
+## ✅ Week 3: Neural Network Design & Baseline Training
+
+---
+
+### 🏗️ 1. Neural Network Architecture
+
+Q: How did you design your baseline Feedforward Neural Network (FFNN) architecture?  
+A:  
+
+Q: What was your rationale for the number of layers, units per layer, and activation functions used?  
+A:  
+
+Q: How did you incorporate Dropout, Batch Normalization, and ReLU in your model, and why are these components important?  
+A:  
+
+---
+
+### ⚙️ 2. Model Training & Optimization
+
+Q: Which loss function and optimizer did you use for training, and why are they suitable for this binary classification task?  
+A:  
+
+Q: How did you monitor and control overfitting during training?  
+A:  
+
+Q: What challenges did you face during training (e.g., convergence, instability), and how did you address them?  
+A:  
+
+---
+
+### 📈 3. Experiment Tracking
+
+Q: How did you use MLflow (or another tool) to track your deep learning experiments?  
+A:  
+
+Q: What parameters, metrics, and artifacts did you log for each run?  
+A:  
+
+Q: How did experiment tracking help you compare different architectures and training strategies?  
+A:  
+
+---
+
+### 🧮 4. Model Evaluation
+
+Q: Which metrics did you use to evaluate your neural network, and why are they appropriate for this problem?  
+A:  
+
+Q: How did you interpret the Accuracy, Precision, Recall, F1-score, and AUC results?  
+A:  
+
+Q: Did you observe any trade-offs between metrics, and how did you decide which to prioritize?  
+A:  
+
+---
+
+### 🕵️ 5. Error Analysis
+
+Q: How did you use confusion matrices or ROC curves to analyze your model’s errors?  
+A:  
+
+Q: What types of misclassifications were most common, and what might explain them?  
+A:  
+
+Q: How did your error analysis inform your next steps in model improvement?  
+A:  
+
+---
+
+### 📝 6. Model Selection & Insights
+
+Q: Based on your experiments, which neural network configuration performed best and why?  
+A:  
+
+Q: What are your top 3–5 insights from neural network development and experimentation?  
+A:  
+
+Q: How would you communicate your model’s strengths and limitations to a non-technical stakeholder?  
+A:
+
+---
+
+## ✅ Week 4: Model Tuning & Explainability
+
+---
+
+### 🛠️ 1. Model Tuning & Optimization
+
+Q: Which hyperparameters did you tune for your neural network, and what strategies (e.g., grid search, random search) did you use?  
+A:  
+
+Q: How did you implement early stopping or learning rate scheduling, and what impact did these techniques have on your training process?  
+A:  
+
+Q: What evidence did you use to determine your model was sufficiently optimized and not overfitting?  
+A:  
+
+---
+
+### 🧑‍🔬 2. Model Explainability
+
+Q: Which explainability technique(s) (e.g., SHAP, LIME, Integrated Gradients) did you use, and why did you choose them?  
+A:  
+
+Q: How did you apply these techniques to interpret your model’s predictions?  
+A:  
+
+Q: What were the most influential features according to your explainability analysis, and how do these findings align with domain knowledge?  
+A:  
+
+---
+
+### 📊 3. Visualization & Communication
+
+Q: How did you visualize feature contributions and model explanations for stakeholders?  
+A:  
+
+Q: What challenges did you encounter when interpreting or presenting model explanations?  
+A:  
+
+Q: How would you summarize your model’s interpretability and reliability to a non-technical audience?
