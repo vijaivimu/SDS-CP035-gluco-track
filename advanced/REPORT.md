@@ -224,26 +224,25 @@ A:
 ### 🛠️ 1. Model Tuning & Optimization
 
 Q: Which hyperparameters did you tune for your neural network, and what strategies (e.g., grid search, random search) did you use?  
-A: I implemented a **targeted hyperparameter search** focusing on two key parameters: **learning rate** (1e-4 vs 1e-3) and **dropout rate** (0.3 vs 0.5). Rather than grid/random search, I used a **structured approach** testing 3 configurations: LowLR_SMOTE, LowDropout_SMOTE, and Optimized_SMOTE (combining both optimizations). This was a **limited search space** - in retrospect, a more comprehensive approach including architecture parameters (layer sizes, batch size) would have been beneficial.
+
 
 Q: How did you implement early stopping or learning rate scheduling, and what impact did these techniques have on your training process?  
-A: I implemented **early stopping with patience=15 epochs**, monitoring validation loss with no improvement threshold. This prevented overfitting and reduced training time from 50 to ~25-35 epochs on average. However, I did **not implement learning rate scheduling** - this was a missed opportunity. The lower learning rate (1e-4) showed **modest improvements** in F1 score (0.428 vs 0.422), but the impact was **less dramatic than expected**, suggesting the models may have benefited from more sophisticated scheduling.
+
 
 Q: What evidence did you use to determine your model was sufficiently optimized and not overfitting?  
-A: I monitored **validation loss plateauing** and **training/validation metric convergence**. However, looking critically at the results, the models were **not sufficiently optimized** - all F1 scores remained below 0.5, and SMOTE models showed concerning precision drops (29.6% vs 38.3% for class weighting). The **Week 3 Balanced_FFNN remained champion**, suggesting my Week 4 tuning was **insufficient**. More evidence needed: learning curves, validation curves, and cross-validation.  
+
 
 ---
 
 ### 🧑‍🔬 2. Model Explainability
 
 Q: Which explainability technique(s) (e.g., SHAP, LIME, Integrated Gradients) did you use, and why did you choose them?  
-A: I initially planned to use **SHAP (SHapley Additive exPlanations)** for comprehensive model interpretability, but encountered **technical incompatibility** with BatchNorm layers in my neural network. As a fallback, I implemented **gradient-based feature importance** using backpropagation to calculate the absolute magnitude of gradients with respect to input features. This choice was **pragmatic rather than optimal** - gradient importance provides limited insight compared to SHAP's interaction-aware explanations.
 
 Q: How did you apply these techniques to interpret your model's predictions?  
-A: I calculated **average absolute gradients** across 500 test samples, ranking features by their gradient magnitude. This revealed individual feature sensitivity but **missed interaction effects** crucial for understanding neural network behavior. I grouped features into clinical categories (cardiovascular, metabolic, lifestyle) to provide **domain-relevant insights**. However, this approach is **fundamentally limited** - it shows what the model uses, not necessarily what drives real diabetes risk.
+
 
 Q: What were the most influential features according to your explainability analysis, and how do these findings align with domain knowledge?  
-A: The analysis revealed **concerning misalignment with medical knowledge**: Heavy alcohol consumption ranked as the top predictor (importance: 0.0006), followed by healthcare access (NoDocbcCost) and cholesterol checking. Traditional diabetes risk factors like **BMI and age ranked surprisingly low**. This suggests either **spurious correlations**, **dataset quality issues**, or **inadequate feature engineering**. The findings **contradict established diabetes risk factors**, raising serious questions about model validity.  
+
 
 ---
 
