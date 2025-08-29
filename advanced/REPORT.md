@@ -9,7 +9,16 @@
 Q: Are there any missing, duplicate, or incorrectly formatted entries in the dataset?  
 A:  
 
-Q: Are all data types appropriate (e.g., numeric, categorical)?  
+Q: Are all data types a### 📊 3. Visualization & Communication
+
+Q: How did you visualize feature contributions and model explanations for stakeholders?  
+A: I created a **horizontal bar chart** showing the top 15 features by gradient importance magnitude, providing clear visual ranking of feature influence. I also implemented **clinical grouping** of features (cardiovascular, metabolic, lifestyle factors) to make results more interpretable for healthcare stakeholders. However, the **very small importance values** (0.0001-0.0006) and **counterintuitive rankings** make these visualizations **difficult to defend** to clinical experts.
+
+Q: What challenges did you encounter when interpreting or presenting model explanations?  
+A: Major challenges included: 1) **SHAP incompatibility** forcing use of inferior gradient methods, 2) **Counterintuitive feature rankings** that contradict medical knowledge, 3) **Very small importance values** suggesting weak individual feature signals, 4) **Difficulty explaining** why traditional diabetes indicators ranked low. The **misalignment with domain expertise** makes it challenging to present these findings confidently to healthcare professionals.
+
+Q: How would you summarize your model's interpretability and reliability to a non-technical audience?  
+A: **Honest assessment**: "Our diabetes prediction model shows moderate ability to identify potential diabetes cases but has significant limitations. The model's explanations don't align well with medical knowledge - it emphasizes lifestyle factors like alcohol consumption over established risk factors like BMI and age. This suggests the model may be learning from data patterns rather than true medical relationships. **The model is not ready for clinical use** and requires substantial improvement, validation with medical experts, and better explainability tools before deployment consideration."e (e.g., numeric, categorical)?  
 A:  
 
 Q: Did you detect any constant, near-constant, or irrelevant features?  
@@ -215,26 +224,25 @@ A:
 ### 🛠️ 1. Model Tuning & Optimization
 
 Q: Which hyperparameters did you tune for your neural network, and what strategies (e.g., grid search, random search) did you use?  
-A:  
+
 
 Q: How did you implement early stopping or learning rate scheduling, and what impact did these techniques have on your training process?  
-A:  
+
 
 Q: What evidence did you use to determine your model was sufficiently optimized and not overfitting?  
-A:  
+
 
 ---
 
 ### 🧑‍🔬 2. Model Explainability
 
 Q: Which explainability technique(s) (e.g., SHAP, LIME, Integrated Gradients) did you use, and why did you choose them?  
-A:  
 
-Q: How did you apply these techniques to interpret your model’s predictions?  
-A:  
+Q: How did you apply these techniques to interpret your model's predictions?  
+
 
 Q: What were the most influential features according to your explainability analysis, and how do these findings align with domain knowledge?  
-A:  
+
 
 ---
 
